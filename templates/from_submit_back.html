@@ -1,0 +1,31 @@
+<style type='text/css'>
+input[type=textarea] {
+    rows = "40";
+    cols="10"
+}
+</style> 
+ </div>
+            <div id="content">
+                <form method="post" action="{{ url_for('hello') }}" id = "formatform">
+                  
+                  <label for="yourname">Please enter SQL Query:</label>
+                  <input type="textarea" name="yourname" /><br />
+                  
+                  <input type="submit" />
+                </form>
+                <select name="formatlist" form="formatform">
+                    <option value="Table">Table</option>
+                   <option value="CSV">CSV</option>
+                 </select>
+            </div>
+            <div class="title">
+                <h1>Flask code</h1>
+            </div>
+                <code><pre> @app.route('/') def form():
+    return render_template('form_submit.html')
+                </pre></code>
+            </div>
+        </div>
+    </body>
+</html>
+

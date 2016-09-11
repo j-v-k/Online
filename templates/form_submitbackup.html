@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Online NBA SQL Database</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static',
+filename='style.css') }}">
+    </head>
+    <body>
+        <div id="container">
+            <div class="title">
+                <h1>Select Output Type</h1>
+            </div>
+
+            <div id="content">
+                <form name="ChooseDat" action="{{ url_for('hello') }}" method='POST'>
+                   <h3>Output Format</h3>
+                 <select name="Item_1">
+                     <option value="Table">Table</option>
+                     <option value="CSV">CSV</option>
+                 </select>
+
+
+                  <label for="yourname">Enter SQL Code:</label>
+                  <input type="text" name="yourname" /><br />
+                  <input type="submit" />
+                </form>
+            </div>
+            <div class="title">
+                <h1>Flask code</h1>
+            </div>
+                <code><pre> @app.route('/') def form():
+    return render_template('form_submit.html')
+                </pre></code>
+            </div>
+        </div>
+    </body>
+
