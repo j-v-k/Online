@@ -23,9 +23,18 @@ def form():
 # Define a route for the action of the form, for example '/hello/' We 
 # are also defining which type of requests this route is accepting: POST 
 # requests in this case
-@app.route('/hello/', methods=['POST'])
 
-def hello():
+
+
+@app.route('/foo/', methods=['POST'])
+def foo():
+    return render_template('data_map_and_ex_qs.html')
+
+
+
+@app.route('/results/', methods=['POST'])
+
+def results():
     conn = mysql.get_db()
     try:
           print name
