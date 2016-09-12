@@ -1,11 +1,9 @@
 <html>
     <head>
-        <title>NBA SQL</title>
-
-	<style type='text/css'>
-
-	</style>
-	</head>
+        <link rel="stylesheet"
+         type="text/css"
+        href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
 		<body>
 		 <h2>NBA SQL PAGE</h2>
          <div id="content">
@@ -15,7 +13,7 @@
 SELECT *
 FROM Gamelogs
 LIMIT 4</TEXTAREA>
-                  <input type="submit" onclick="loading();" />
+                  <input type="submit" onclick="loading();" class = "myButton"/>
                 </form>
                 
 				<form action="/foo/" method="post" class="inline">
@@ -24,7 +22,7 @@ LIMIT 4</TEXTAREA>
                    <option value="CSV">CSV</option>
 				</select>
 				
-				<button type="submit" value="Data_Map">Data Map and SQL Examples</button>
+				<button type="submit" value="Data_Map" class = "myButton"> Data Map and SQL Examples</button>
 				</form>
              
             </div>
