@@ -36,21 +36,21 @@ def foo():
 
 def results():
     conn = mysql.get_db()
-    try:
-          print name
-    except:
-          print "no name"
+    
     query = request.form['yourname']
     x = request.form['formatlist']
-#    print x
+
     with conn as cursor:
-         cursor.execute(query)
+         try:
+             cursor.execute(query)
+         except Exception,e:
+             print "SQL error: n\ " + str(e) 
          row = cursor.fetchall()
          rowList = [[i[0] for i in cursor.description]]
       
          for i in row:
                 rowList += [list(i)]
- #        print rowList       
+      
          if "CSV" or "Table" in x:
                name = []
                for row in rowList:
