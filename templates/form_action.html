@@ -8,8 +8,7 @@
 	<div id="content">
                 <form method="post" action="{{ url_for('hello') }}" id = "formatform">
 
-                   <br/><TEXTAREA name="yourname" rows="20" cols="80">#Enter your SQL Query
-SELECT * FROM Gamelogs LIMIT 4</TEXTAREA>
+                   <br/><TEXTAREA name="yourname" rows="20" cols="80">{{name[1]}}</TEXTAREA>
                   <input type="submit" onclick="loading();" />
                 </form>
                 <select name="formatlist" form="formatform">
@@ -20,7 +19,7 @@ SELECT * FROM Gamelogs LIMIT 4</TEXTAREA>
             </div>
             <div id="content">
                 <h2>Results:</h2>   
-                {%for i in name%}  
+                {%for i in name[0]%}  
                    {{i}}<br>
                  {% endfor %}
           
