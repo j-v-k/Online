@@ -44,7 +44,7 @@ def results():
          try:
              cursor.execute(query)
          except Exception,e:
-              name = ("SQL error: n\ " + str(e), query)
+              name = ("SQL error: \n " + str(e), query)
               return render_template('error_page.html', name=name)
        
          row = cursor.fetchall()
