@@ -34,12 +34,12 @@
             <div id="content">
                 <table style="width:70%">
                  <tr>
-                {%for head in name[0]%}
+                {%for head in name[0][0]%}
                   <th>{{head}}</th>
                     {% endfor %}
                   </tr>
 
-                {%for row in name[1:]%}
+                {%for row in name[0][1:]%}
 		     <tr>
                    {%for i in row%}
                        <strong><td>{{i}}</td></strong>
