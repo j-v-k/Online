@@ -58,9 +58,9 @@ def hello():
                                 # print i
                                  queryList += [str(i).encode('utf-8')]
                         name += [queryList]
-
+			   name = (name, query)
                if "CSV" in x:
-                     return render_template('form_action.html', name=name)
+                     return (render_template('form_action.html', name=name)
                else:
                      return render_template('form_action_table.html', name=name)
 

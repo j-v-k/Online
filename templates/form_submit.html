@@ -1,34 +1,25 @@
-<style type='text/css'>
-input[type=textarea] {
-}
+<html>
+    <head>
+        <title>Handle POST requests with Flask</title>
 
-div#loading {
-    width: 35px;
-    height: 35px;
-    display: none;
-    background: url(myapp/static/loader.gif) no-repeat;
-    cursor: wait;
-    }
-</style>
-         <div id="loading"></div>
+	<style type='text/css'>
+
+	</style>
+	</head>
+		<body>
+		 <h2>NBA SQL PAGE</h2>
          <div id="content">
                 <form method="post" action="{{ url_for('hello') }}" id = "formatform">
 
-                   <br/><TEXTAREA name="yourname" rows="20" cols="80">
-                         #Enter your SQL Query
-                         select * from Gamelogs limit 3</TEXTAREA>
+                   <br/><TEXTAREA name="yourname" rows="20" cols="80">#Enter your SQL Query
+{{name[1]}}</TEXTAREA>
                   <input type="submit" onclick="loading();" />
                 </form>
                 <select name="formatlist" form="formatform">
                     <option value="Table">Table</option>
                    <option value="CSV">CSV</option>
                  </select>
-             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-             <script type="text/javascript">
-             function loading(){
-                 $("#loading").show();
-                 $("#content").hide()}
-           </script>
+             
             </div>
           
     </body>

@@ -1,24 +1,29 @@
 <html>
     <head>
-        <title>Handle POST requests with Flask</title>
         <link rel="stylesheet"
          type="text/css"
         href="{{ url_for('static', filename='style.css') }}"/>
     </head>
-    <body display:none;>
-            <h5>This is a heading</h5>
+    <body display>
+	<div id="content">
+                <form method="post" action="{{ url_for('hello') }}" id = "formatform">
+
+                   <br/><TEXTAREA name="yourname" rows="20" cols="80">#Enter your SQL Query
+SELECT * FROM Gamelogs LIMIT 4</TEXTAREA>
+                  <input type="submit" onclick="loading();" />
+                </form>
+                <select name="formatlist" form="formatform">
+                    <option value="Table">Table</option>
+                   <option value="CSV">CSV</option>
+                 </select>
+             
+            </div>
             <div id="content">
-                <h2>This is a heading</h2>   
+                <h2>Results:</h2>   
                 {%for i in name%}  
                    {{i}}<br>
                  {% endfor %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.$
-            <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-            <script type="text/javascript" src="test.js">
-           $(function () {
-               $('body').show();
-            });
-            </script>
+          
 
           </div>
     
