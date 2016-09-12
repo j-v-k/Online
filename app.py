@@ -44,7 +44,9 @@ def results():
          try:
              cursor.execute(query)
          except Exception,e:
-             print "SQL error: n\ " + str(e) 
+              name = ("SQL error: n\ " + str(e), query)
+              return render_template('error_page.html', name=name)
+       
          row = cursor.fetchall()
          rowList = [[i[0] for i in cursor.description]]
       

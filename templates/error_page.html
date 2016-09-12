@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet"
+         type="text/css"
+        href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
+    <body display>
+	<div id="content">
+                <form method="post" action="{{ url_for('results') }}" id = "formatform">
+
+                   <br/><TEXTAREA name="yourname" rows="20" cols="80">{{name[1]}}</TEXTAREA>
+                  <input type="submit" onclick="loading();" />
+                </form>
+                <select name="formatlist" form="formatform">
+                    <option value="Table">Table</option>
+                   <option value="CSV">CSV</option>
+                 </select>
+             
+            </div>
+            <div id="content">
+            <h2>Query Results:</h2>   
+                {{i}}
+                 
+          
+
+          </div>
+    
+    </body>
+</html>
