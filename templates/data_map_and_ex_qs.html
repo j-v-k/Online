@@ -7,7 +7,53 @@
 	</style>
 	</head>
 		<body>
-		 <h2>NBA SQL PAGE</h2>
+		 <h2>Example Queries</h2>
+		 
+		 <div>
+		 #Top 10 Players in Points in Regular Season<br>
+		Select First_Name,Last_Name, sum(PTS) from Players a<br>
+		JOIN SeasonStats b<br>
+		ON a.Player_ID = b.Player_ID<br>
+		JOIN Seasons c<br>
+		On b.Season_ID = c.Season_ID<br>
+		WHERE Post_Reg = 0<br>
+		GROUP BY a.Player_ID<br>
+		ORDER BY sum(PTS)<br>
+		DESC<br>
+		LIMIT 10;<br>
+<br>
+<br>
+<br>
+		#Top 10 Plus_Minus<br>
+		Select First_Name,Last_Name, sum(Plus_Minus) <br>
+		From Players a<br>
+		JOIN Gamelogs b<br>
+		ON a.Player_ID = b.Player_ID<br>
+		JOIN Seasons c<br>
+		On b.Season_ID = c.Season_ID<br>
+		WHERE b.Post_Reg = 0<br>
+		GROUP BY a.Player_ID<br>
+		ORDER BY sum(Plus_Minus)<br>
+		DESC<br>
+		LIMIT 10;<br>
+<br>
+<br>
+		#Total Winning Percentage by Team in November 2015<br>
+		SELECT Team_Name, <br>
+		SUM(case when b.Team_ID = a.Winning_Team then 1 else 0 end)/<br>
+		COUNT(*) as Winning_Percentage<br>
+		FROM Games a<br>
+		JOIN Teams b<br>
+		ON a.Winning_Team = b.Team_ID<br>
+		OR a.Losing_Team = b.Team_ID<br>
+		WHERE month(Game_Date) = 11<br>
+		AND year(Game_Date) = 2015<br>
+		GROUP BY Team_ID<br>
+		ORDER BY Winning_Percentage DESC<br>
+		 <br>
+		 <div/>
+		 
+		 
          
           
     </body>

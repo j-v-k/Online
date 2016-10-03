@@ -1,0 +1,53 @@
+Tables_in_NBA
+Gamelogs
+Games
+Players
+Playoff_Gamelogs
+SeasonStats
+Seasons
+
+
+#Top 10 Players in Points in regular season
+Select first_Name,last_Name, Post_Reg, sum(PTS) from Players a
+JOIN SeasonStats b
+ON a.Player_ID = b.Player_ID
+JOIN Seasons c
+On b.Season_ID = c.Season_ID
+WHERE Post_Reg = 0
+GROUP BY a.Player_ID
+ORDER BY sum(PTS)
+DESC
+LIMIT 10;
+
+
+"Top 10 Plus_Minus"
+#Enter your SQL Query
+
+Select first_Name,last_Name, sum(Plus_Minus) from Players a
+JOIN Gamelogs b
+ON a.Player_ID = b.Player_ID
+JOIN Seasons c
+On b.Season_ID = c.Season_ID
+WHERE b.Post_Reg = 0
+GROUP BY a.Player_ID
+ORDER BY sum(Plus_Minus)
+DESC
+LIMIT 10;
+
+
+#Total Winning Percentage by Team in November 2015
+select TeamName, 
+sum(case when b.Team_ID = a.Winning_Team then 1 else 0 end)/
+count(*) as Winning_Percentage
+from Games a
+Join Teams b on a.Winning_Team = b.Team_ID or a.Losing_Team = b.Team_ID
+Where month(Game_Date) = 11
+and year(Game_Date) = 2015
+group by TeamID
+order by Winning_Percentage DESC
+
+
+
+
+
+
